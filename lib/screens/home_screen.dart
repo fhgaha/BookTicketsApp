@@ -1,3 +1,4 @@
+import 'package:booktickets/screens/ticket_view.dart';
 import 'package:booktickets/utils/app_styles.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +19,11 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 const Gap(40),
-                //good morning, book tickets
+                //good morning, book tickets, image
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    //good morning, book tickets
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -30,12 +32,19 @@ class HomeScreen extends StatelessWidget {
                         Text("Book Tickets", style: Styles.headLineStyle1),
                       ],
                     ),
-                    //img
+                    // img
                     Container(
+                      width: 50,
+                      height: 50,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10)),
-                      // child: AssetImage("img_1.png"),
-                    )
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/images/img_1.png"),
+                        ),
+                      ),
+                      child: null,
+                    ),
                   ],
                 ),
                 const Gap(25),
@@ -60,21 +69,29 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                const Gap(40),
                 //upcomng flights
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Upcoming Flights", style: Styles.headLineStyle2),
-                    Text(
-                      "View all",
-                      style:
-                          Styles.textStyle.copyWith(color: Styles.primaryColor),
+                    InkWell(
+                      onTap: () {
+                        print("You are tapped " "View all" "");
+                      },
+                      child: Text(
+                        "View all",
+                        style: Styles.textStyle
+                            .copyWith(color: Styles.primaryColor),
+                      ),
                     ),
                   ],
                 ),
               ],
             ),
           ),
+          const Gap(15),
+          TicketView(),
         ],
       ),
     );
