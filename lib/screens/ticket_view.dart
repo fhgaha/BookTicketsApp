@@ -32,7 +32,7 @@ class TicketView extends StatelessWidget {
                   topRight: Radius.circular(21),
                 ),
               ),
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   Row(
@@ -113,7 +113,7 @@ class TicketView extends StatelessWidget {
                 ],
               ),
             ),
-            //orange part of card
+            //orange top part of card
             Container(
               color: Styles.orangeColor,
               child: Row(
@@ -173,7 +173,79 @@ class TicketView extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            //orange bottom part of card
+            Container(
+              decoration: BoxDecoration(
+                color: Styles.orangeColor,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(21),
+                  bottomRight: Radius.circular(21),
+                ),
+              ),
+              padding: const EdgeInsets.only(
+                  left: 16, top: 10, right: 16, bottom: 16),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      //departure date
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "1 MAY",
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          ),
+                          const Gap(5.0),
+                          Text(
+                            "Date",
+                            style: Styles.headLineStyle4
+                                .copyWith(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      //depature time
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "08:00 AM",
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          ),
+                          const Gap(5.0),
+                          Text(
+                            "Departure time",
+                            style: Styles.headLineStyle4
+                                .copyWith(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      //seat number
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "23",
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          ),
+                          const Gap(5.0),
+                          Text(
+                            "Number",
+                            style: Styles.headLineStyle4
+                                .copyWith(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
