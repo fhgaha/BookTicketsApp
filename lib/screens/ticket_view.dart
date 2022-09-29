@@ -23,6 +23,7 @@ class TicketView extends StatelessWidget {
         // margin: EdgeInsets.only(left: 16),
         child: Column(
           children: [
+            //blue part of card
             Container(
               decoration: const BoxDecoration(
                 color: Color(0xff526799),
@@ -34,7 +35,6 @@ class TicketView extends StatelessWidget {
               padding: EdgeInsets.all(16),
               child: Column(
                 children: [
-                  //blue part of card
                   Row(
                     children: [
                       Text("NYC",
@@ -110,6 +110,67 @@ class TicketView extends StatelessWidget {
                     ],
                   ),
                   const Gap(3),
+                ],
+              ),
+            ),
+            //orange part of card
+            Container(
+              color: Styles.orangeColor,
+              child: Row(
+                children: [
+                  //cut out left
+                  SizedBox(
+                    height: 20.0,
+                    width: 10.0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Styles.bgColor,
+                        borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(10.0),
+                          bottomRight: Radius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  //dot line
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: LayoutBuilder(
+                        builder: (buildContext, boxConstraints) {
+                          return Flex(
+                            direction: Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: List.generate(
+                              (boxConstraints.constrainWidth() / 15).floor(),
+                              (index) => const SizedBox(
+                                width: 5,
+                                height: 1,
+                                child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.white)),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  //cut out right
+                  SizedBox(
+                    height: 20.0,
+                    width: 10.0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Styles.bgColor,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10.0),
+                          bottomLeft: Radius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             )
