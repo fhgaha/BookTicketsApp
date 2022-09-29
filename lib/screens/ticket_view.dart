@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:gap/gap.dart';
 
 class TicketView extends StatelessWidget {
   const TicketView({super.key});
@@ -33,28 +34,30 @@ class TicketView extends StatelessWidget {
               padding: EdgeInsets.all(16),
               child: Column(
                 children: [
+                  //blue part of card
                   Row(
                     children: [
                       Text("NYC",
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white)),
                       const Spacer(),
-                      ThickContainer(),
+                      const ThickContainer(),
                       Expanded(
                         child: Stack(
                           alignment: AlignmentDirectional.center,
                           children: [
+                            //dot line
                             SizedBox(
                               height: 24,
                               child: LayoutBuilder(
-                                builder: (BuildContext, BoxConstraints) {
+                                builder: (buildContext, boxConstraints) {
                                   return Flex(
                                     direction: Axis.horizontal,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     mainAxisSize: MainAxisSize.max,
                                     children: List.generate(
-                                      (BoxConstraints.constrainWidth() / 6)
+                                      (boxConstraints.constrainWidth() / 6)
                                           .floor(),
                                       (index) => const SizedBox(
                                         width: 3,
@@ -68,21 +71,45 @@ class TicketView extends StatelessWidget {
                                 },
                               ),
                             ),
+                            //plane symbol
                             Transform.rotate(
                               angle: pi / 2,
-                              child: Icon(Icons.local_airport_rounded,
+                              child: const Icon(Icons.local_airport_rounded,
                                   color: Colors.white),
                             ),
                           ],
                         ),
                       ),
-                      ThickContainer(),
+                      const ThickContainer(),
                       const Spacer(),
-                      Text("London",
+                      Text("LDN",
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white)),
                     ],
                   ),
+                  const Gap(3),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: Text('New-York',
+                            style: Styles.headLineStyle4
+                                .copyWith(color: Colors.white)),
+                      ),
+                      Text("8H 30M",
+                          style: Styles.headLineStyle4
+                              .copyWith(color: Colors.white)),
+                      SizedBox(
+                        width: 100,
+                        child: Text('London',
+                            textAlign: TextAlign.end,
+                            style: Styles.headLineStyle4
+                                .copyWith(color: Colors.white)),
+                      ),
+                    ],
+                  ),
+                  const Gap(3),
                 ],
               ),
             )
