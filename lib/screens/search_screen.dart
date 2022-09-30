@@ -1,5 +1,6 @@
 import 'package:booktickets/utils/app_layout.dart';
 import 'package:booktickets/utils/app_styles.dart';
+import 'package:booktickets/widgets/double_text_widget.dart';
 import 'package:booktickets/widgets/icon_text_widget.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
@@ -68,8 +69,29 @@ class SearchScreen extends StatelessWidget {
           Gap(AppLayout.getHeight(25)),
           const AppIconText(
               icon: Icons.flight_takeoff_rounded, text: "Departure"),
-          Gap(AppLayout.getHeight(15)),
+          Gap(AppLayout.getHeight(20)),
           const AppIconText(icon: Icons.flight_land_rounded, text: "Arrival"),
+          Gap(AppLayout.getHeight(25)),
+          Container(
+            padding: EdgeInsets.symmetric(
+              vertical: AppLayout.getHeight(18),
+              horizontal: AppLayout.getWidth(15),
+            ),
+            decoration: BoxDecoration(
+              color: const Color(0xd91130ce),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text(
+                "Find tickets",
+                style: Styles.textStyle.copyWith(color: Colors.white),
+              ),
+            ),
+          ),
+
+          Gap(AppLayout.getHeight(25)),
+          const AppDoubleTextWidget(bigText: "Hotels", smallText: "View all"),
+          Gap(AppLayout.getHeight(25)),
         ],
       ),
     );
