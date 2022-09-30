@@ -1,3 +1,5 @@
+import 'package:barcode/barcode.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 import 'package:booktickets/screens/ticket_view.dart';
 import 'package:booktickets/utils/app_info_list.dart';
 import 'package:booktickets/utils/app_layout.dart';
@@ -116,6 +118,37 @@ class TicketScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(height: 1),
+              //bar code
+              Container(
+                margin:
+                    EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
+                padding:
+                    EdgeInsets.symmetric(vertical: AppLayout.getHeight(15)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(AppLayout.getHeight(20)),
+                    bottomRight: Radius.circular(AppLayout.getHeight(20)),
+                  ),
+                  color: Colors.white,
+                ),
+                child: Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
+                  child: ClipRRect(
+                    borderRadius:
+                        BorderRadius.circular(AppLayout.getHeight(15)),
+                    child: BarcodeWidget(
+                      barcode: Barcode.code128(),
+                      data: "http://example.com",
+                      drawText: false,
+                      color: Styles.textColor,
+                      width: double.infinity,
+                      height: 70,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ],
