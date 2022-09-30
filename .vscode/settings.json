@@ -1,4 +1,5 @@
 {
 	"editor.fontSize": 15,
-	"editor.fontWeight": "normal"
+	"editor.fontWeight": "normal",
+	"dart.enableCompletionCommitCharacters": false
 }

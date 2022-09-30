@@ -94,7 +94,7 @@ class SearchScreen extends StatelessWidget {
             children: [
               //card 1
               Container(
-                height: AppLayout.getHeight(400),
+                height: AppLayout.getHeight(335),
                 width: size.width * 0.42,
                 padding: EdgeInsets.symmetric(
                   horizontal: AppLayout.getWidth(15),
@@ -192,6 +192,44 @@ class SearchScreen extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  Gap(AppLayout.getHeight(20)),
+                  //card 3
+                  Container(
+                    width: size.width * 0.42,
+                    // height: 200,
+                    padding: EdgeInsets.symmetric(
+                        vertical: AppLayout.getHeight(20),
+                        horizontal: AppLayout.getWidth(5)),
+                    decoration: BoxDecoration(
+                      color: const Color(0xffec6545),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Take love",
+                          style: Styles.headLineStyle2.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Gap(AppLayout.getHeight(10)),
+                        RichText(
+                          text: const TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: '😍', style: TextStyle(fontSize: 38)),
+                              TextSpan(
+                                  text: '🥰', style: TextStyle(fontSize: 50)),
+                              TextSpan(
+                                  text: '😘', style: TextStyle(fontSize: 38)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
