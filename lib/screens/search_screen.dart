@@ -2,10 +2,7 @@ import 'package:booktickets/utils/app_layout.dart';
 import 'package:booktickets/utils/app_styles.dart';
 import 'package:booktickets/widgets/double_text_widget.dart';
 import 'package:booktickets/widgets/icon_text_widget.dart';
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -88,10 +85,57 @@ class SearchScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          Gap(AppLayout.getHeight(25)),
-          const AppDoubleTextWidget(bigText: "Hotels", smallText: "View all"),
-          Gap(AppLayout.getHeight(25)),
+          Gap(AppLayout.getHeight(40)),
+          const AppDoubleTextWidget(
+              bigText: "Upcoming Flights", smallText: "View all"),
+          Gap(AppLayout.getHeight(15)),
+          Row(
+            children: [
+              //card 1
+              Container(
+                height: AppLayout.getHeight(400),
+                width: size.width * 0.42,
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppLayout.getWidth(15),
+                  vertical: AppLayout.getHeight(15),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(AppLayout.getHeight(18)),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade200,
+                      blurRadius: 1,
+                      // offset: Offset(10, 15),
+                      spreadRadius: 1,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    //img
+                    Container(
+                      height: AppLayout.getHeight(190),
+                      // width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(AppLayout.getHeight(12)),
+                        image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/images/sit.jpg"),
+                        ),
+                      ),
+                    ),
+                    Gap(AppLayout.getHeight(12)),
+                    Text(
+                      "20% discount on the early booking of this flight. Don't miss.",
+                      style: Styles.textStyle,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
