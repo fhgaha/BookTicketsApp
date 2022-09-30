@@ -90,6 +90,7 @@ class SearchScreen extends StatelessWidget {
               bigText: "Upcoming Flights", smallText: "View all"),
           Gap(AppLayout.getHeight(15)),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               //card 1
               Container(
@@ -133,6 +134,66 @@ class SearchScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              Column(
+                children: [
+                  //card 2
+                  Stack(
+                    children: [
+                      //green card
+                      Container(
+                        width: size.width * 0.42,
+                        // height: 144,
+                        decoration: BoxDecoration(
+                          color: const Color(0xff3ab8b8),
+                          borderRadius: BorderRadius.circular(
+                            AppLayout.getHeight(18),
+                          ),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          vertical: AppLayout.getHeight(15),
+                          horizontal: AppLayout.getWidth(15),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Discount\nfor survey",
+                              style: Styles.headLineStyle2.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Gap(AppLayout.getHeight(10)),
+                            Text(
+                              "Take the survey about our services and get discount",
+                              style: Styles.textStyle.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                  fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                      //ring
+                      Positioned(
+                        right: -45,
+                        top: -40,
+                        child: Container(
+                          padding: EdgeInsets.all(AppLayout.getHeight(30)),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 18,
+                              color: Color(0xff189999),
+                            ),
+                            color: Colors.transparent,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),
