@@ -48,11 +48,11 @@ class HotelScreen extends StatelessWidget {
           ),
           const Gap(10),
           Text(
-            "${hotel['place']}",
+            hotel['place'],
             style: Styles.headLineStyle2.copyWith(color: Styles.kakiColor),
           ),
           const Gap(5),
-          Text("${hotel['destination']}",
+          Text(hotel['destination'],
               style: Styles.headLineStyle3.copyWith(color: Colors.white)),
           const Gap(8),
           Text(
