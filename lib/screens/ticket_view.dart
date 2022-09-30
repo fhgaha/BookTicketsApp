@@ -6,6 +6,8 @@ import 'package:booktickets/widgets/thick_container.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../widgets/layout_builder_widget.dart';
+
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
   final bool? isColor;
@@ -50,29 +52,9 @@ class TicketView extends StatelessWidget {
                             //dot line
                             SizedBox(
                               height: AppLayout.getHeight(24),
-                              child: LayoutBuilder(
-                                builder: (buildContext, boxConstraints) {
-                                  return Flex(
-                                    direction: Axis.horizontal,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: List.generate(
-                                      (boxConstraints.constrainWidth() / 6)
-                                          .floor(),
-                                      (index) => SizedBox(
-                                        width: 3,
-                                        height: 1,
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                              color: isColor == null
-                                                  ? Colors.white
-                                                  : Colors.grey.shade300),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
+                              child: AppLayoutBuilderWidget(
+                                sections: 6,
+                                isColor: isColor,
                               ),
                             ),
                             //plane symbol
@@ -148,30 +130,14 @@ class TicketView extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // const AppLayoutBuilderWidget(isColor: true, sections: 15),
                   //dot line
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(AppLayout.getHeight(12)),
-                      child: LayoutBuilder(
-                        builder: (buildContext, boxConstraints) {
-                          return Flex(
-                            direction: Axis.horizontal,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            mainAxisSize: MainAxisSize.max,
-                            children: List.generate(
-                              (boxConstraints.constrainWidth() / 15).floor(),
-                              (index) => SizedBox(
-                                width: 5,
-                                height: 1,
-                                child: DecoratedBox(
-                                    decoration: BoxDecoration(
-                                        color: isColor == null
-                                            ? Colors.white
-                                            : Colors.grey.shade300)),
-                              ),
-                            ),
-                          );
-                        },
+                      child: AppLayoutBuilderWidget(
+                        sections: 15,
+                        isColor: isColor,
                       ),
                     ),
                   ),
