@@ -6,6 +6,8 @@ import 'package:booktickets/widgets/ticket_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../widgets/column_layout.dart';
+
 class TicketScreen extends StatelessWidget {
   const TicketScreen({super.key});
 
@@ -28,9 +30,36 @@ class TicketScreen extends StatelessWidget {
               const AppTicketTabs(firstTab: "Upcoming", secondTab: "Previous"),
               Gap(AppLayout.getHeight(20)),
               Container(
+                padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
                 child: TicketView(
                   ticket: ticketList[0],
                   isColor: true,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                margin: EdgeInsets.symmetric(horizontal: 15),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const AppColumnLayout(
+                          firstText: "Flutter DB",
+                          secondText: "Passenger",
+                          alignment: CrossAxisAlignment.start,
+                          isColor: true,
+                        ),
+                        const AppColumnLayout(
+                          firstText: "5221 478566",
+                          secondText: "Passport",
+                          alignment: CrossAxisAlignment.end,
+                          isColor: true,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],
