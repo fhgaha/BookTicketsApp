@@ -148,7 +148,12 @@ class TicketScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              //ticket
+              Gap(AppLayout.getHeight(20)),
+              Container(
+                  margin: EdgeInsets.only(left: AppLayout.getHeight(15)),
+                  child: TicketView(ticket: ticketList[0])),
             ],
           ),
         ],
