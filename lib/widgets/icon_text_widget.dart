@@ -10,24 +10,20 @@ class AppIconText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: AppLayout.getHeight(12),
-        horizontal: AppLayout.getWidth(12),
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        children: [
-          Icon(icon, color: const Color(0xffbfc2df)),
-          Gap(AppLayout.getWidth(10)),
-          Text(
-            text,
-            style: Styles.textStyle,
-          ),
-        ],
+    return TextField(
+      style: Styles.textStyle,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        hintText: text,
+        prefixIcon: Icon(
+          icon,
+          color: const Color(0xffbfc2df),
+        ),
       ),
     );
   }
