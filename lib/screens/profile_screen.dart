@@ -1,9 +1,9 @@
 import 'package:booktickets/utils/app_layout.dart';
 import 'package:booktickets/utils/app_styles.dart';
+import 'package:booktickets/widgets/column_layout.dart';
+import 'package:booktickets/widgets/layout_builder_widget.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -113,6 +113,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           Gap(AppLayout.getHeight(8)),
           Divider(color: Colors.grey.shade300),
+          Gap(AppLayout.getHeight(8)),
           //youve got new award
           Stack(
             children: [
@@ -139,13 +140,14 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              //content
               Container(
                 padding: EdgeInsets.symmetric(
                   horizontal: AppLayout.getHeight(25),
                   vertical: AppLayout.getHeight(15),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     //lightbulb
@@ -183,6 +185,122 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Gap(AppLayout.getHeight(20)),
+          Text("Accumulated miles", style: Styles.headLineStyle2),
+          Gap(AppLayout.getHeight(20)),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppLayout.getHeight(18)),
+              color: Styles.bgColor,
+              boxShadow: const [
+                BoxShadow(
+                  color: Color.fromARGB(114, 217, 223, 225),
+                  blurRadius: 5,
+                  spreadRadius: 5,
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Text(
+                  "192802",
+                  style: TextStyle(
+                    fontSize: 45,
+                    color: Styles.textColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Gap(AppLayout.getHeight(20)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Miles accrued",
+                      style: Styles.headLineStyle4.copyWith(fontSize: 16),
+                    ),
+                    Text(
+                      "01 Oct 2022",
+                      style: Styles.headLineStyle4.copyWith(fontSize: 16),
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(4)),
+                Divider(color: Colors.grey.shade300),
+                Gap(AppLayout.getHeight(4)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    AppColumnLayout(
+                      firstText: "23 042",
+                      secondText: "Miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: true,
+                    ),
+                    AppColumnLayout(
+                      firstText: "Airline CO",
+                      secondText: "Recieved from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: true,
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(12)),
+                const AppLayoutBuilderWidget(sections: 12, isColor: true),
+                Gap(AppLayout.getHeight(12)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    AppColumnLayout(
+                      firstText: "24",
+                      secondText: "Miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: true,
+                    ),
+                    AppColumnLayout(
+                      firstText: "McDonah's",
+                      secondText: "Recieved from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: true,
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(12)),
+                const AppLayoutBuilderWidget(sections: 12, isColor: true),
+                Gap(AppLayout.getHeight(12)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    AppColumnLayout(
+                      firstText: "52 340",
+                      secondText: "Miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: true,
+                    ),
+                    AppColumnLayout(
+                      firstText: "Exuma",
+                      secondText: "Recieved from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: true,
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(20)),
+              ],
+            ),
+          ),
+          Gap(AppLayout.getHeight(25)),
+          Center(
+            child: InkWell(
+              onTap: () =>
+                  print("You tabbed How to get more miles on profile screen"),
+              child: Text(
+                "How to get more miles",
+                style: Styles.textStyle.copyWith(
+                    color: Styles.primaryColor, fontWeight: FontWeight.w500),
+              ),
+            ),
           ),
         ],
       ),
