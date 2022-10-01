@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
 import '../utils/app_layout.dart';
 
-class AppTicketTabs extends StatelessWidget {
+class AppSwitchButton extends StatefulWidget {
   final String firstTab;
   final String secondTab;
-  const AppTicketTabs(
+
+  const AppSwitchButton(
       {super.key, required this.firstTab, required this.secondTab});
+
+  @override
+  State<AppSwitchButton> createState() => _AppSwitchButtonState();
+}
+
+class _AppSwitchButtonState extends State<AppSwitchButton> {
+  Color firstColor = Colors.white;
+  Color secondColor = Colors.transparent;
+
+  void setFirstActive() => setState(() {
+        firstColor = Colors.white;
+        secondColor = Colors.transparent;
+      });
+
+  void setSecondActive() => setState(() {
+        firstColor = Colors.transparent;
+        secondColor = Colors.white;
+      });
 
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
+
     return FittedBox(
       child: Container(
         padding: EdgeInsets.all(AppLayout.getHeight(3.5)),
@@ -20,26 +40,36 @@ class AppTicketTabs extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             //Airline Tickets
-            Container(
-              width: size.width * 0.44,
-              padding: EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.horizontal(
-                    left: Radius.circular(AppLayout.getHeight(20))),
-                color: Colors.white,
+            InkWell(
+              onTap: setFirstActive,
+              child: Container(
+                width: size.width * 0.44,
+                padding: EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(AppLayout.getHeight(20))),
+                  color: firstColor,
+                ),
+                child: Center(
+                  child: Text(widget.firstTab),
+                ),
               ),
-              child: Center(child: Text(firstTab)),
             ),
             //Hotels
-            Container(
-              width: size.width * 0.44,
-              padding: EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.horizontal(
-                    right: Radius.circular(AppLayout.getHeight(20))),
-                color: Colors.transparent,
+            InkWell(
+              onTap: setSecondActive,
+              child: Container(
+                width: size.width * 0.44,
+                padding: EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.horizontal(
+                      right: Radius.circular(AppLayout.getHeight(20))),
+                  color: secondColor,
+                ),
+                child: Center(
+                  child: Text(widget.secondTab),
+                ),
               ),
-              child: Center(child: Text(secondTab)),
             ),
           ],
         ),
